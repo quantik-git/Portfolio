@@ -10,22 +10,15 @@ if (document.readyState != 'loading') {
 
 function ready() {
     const header_preloader = document.getElementById("header-preloader");
-    const lds_css = document.getElementsByClassName("lds-css");
+    const lds_css = document.getElementById("lds-css");
     const preloader = document.getElementById("preloader");
 
     setTimeout(function(){
-        $("#header-preloader").fadeIn(500);
-        $(".lds-css").fadeIn(500);
-    }, 500);
+        header_preloader.classList.add('hidden');
+        lds_css.classList.add('hidden');
+    }, 2100);
     setTimeout(function(){
-        $("#header-preloader").fadeTo(300, 0);
-        $(".lds-css").fadeTo(300, 0);
-    }, 1800);
-    setTimeout(function(){
-        $(".preloader").fadeTo(200, 0);
-    }, 2200);
-    setTimeout(function(){
-        preloader.classList.add('none');
+        preloader.classList.add('hidden');
         preloader.classList.remove('z-20');
         document.body.classList.remove("overflow-hidden");
     }, 2500);
@@ -39,9 +32,9 @@ function ready() {
     ScrollReveal().reveal('.fa-github', { delay: 650, origin: 'bottom', distance: '6em' });
     ScrollReveal().reveal('.fa-codepen', { delay: 800, origin: 'bottom', distance: '6em' });
     ScrollReveal().reveal('.fa-free-code-camp', { delay: 950, origin: 'bottom', distance: '6em' });
-
-    
 }
+
+
 /*
 function makeXhrRequest(method, url, data, callback) {
     let xhr = new XMLHttpRequest();
