@@ -1,0 +1,122 @@
+:root {
+  --preloader-color-1: #ff5722;
+  --preloader-color-2: #00adb5;
+}
+
+/*
+* GENERAL
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+* HOME
+*/
+#home {
+  background-image: url(assets/techs.png);
+  background-position: bottom;
+  background-color: #303841 !important;
+  background-repeat: no-repeat;
+}
+
+/*
+* PROJECTS
+*/
+.upright {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/*
+* PRELOADER
+*/
+.preloader {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  height: 100vh;
+  width: 100%;
+  background-color: #303841;
+  position: absolute;
+}
+#header-preloader {
+  color: #eeeeee;
+  display: none;
+}
+.lds-css {
+  display: none;
+}
+
+@keyframes lds-double-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-double-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes lds-double-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes lds-double-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+.lds-double-ring {
+  position: relative;
+}
+.lds-double-ring div {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  border: 8px solid #000;
+  border-color: var(--preloader-color-1) transparent var(--preloader-color-1) transparent;
+  -webkit-animation: lds-double-ring 1.8s linear infinite;
+  animation: lds-double-ring 1.8s linear infinite;
+}
+.lds-double-ring div:nth-child(2) {
+  width: 140px;
+  height: 140px;
+  top: 30px;
+  left: 30px;
+  border-color: transparent var(--preloader-color-2) transparent var(--preloader-color-2);
+  -webkit-animation: lds-double-ring_reverse 1.8s linear infinite;
+  animation: lds-double-ring_reverse 1.8s linear infinite;
+}
+.lds-double-ring {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}

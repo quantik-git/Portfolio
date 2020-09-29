@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>DM</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!--StyleSheets-->
+		<link rel="stylesheet" href="preloader.css">
+		<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200&display=swap">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+		<!-- Scripts -->
+		<script src="https://unpkg.com/scrollreveal@4.0.7/dist/scrollreveal.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	</head>
+
+	<body class="overflow-hidden">
+		<!--preloader-->
+		<section id="preloader" class="preloader z-20">
+			<div class="mb-3">
+				<h1 id="header-preloader" class="text-center text-6xl">David Machado</h1>
+			</div>
+			<div class="lds-css ng-scope">
+				<div class="lds-double-ring">
+					<div></div><div></div>
+				</div>
+			</div>
+		</section>
+
+		<nav class="flex items-center justify-between flex-wrap bg-gray-400 p-5 fixed w-full z-10">
+			<div class="flex items-center flex-shrink-0 text-black mr-6 text-">
+				<span class="font-semibold text-2xl sm:text-2xl tracking-tight">DM</span>
+			</div>
+			<div class="block lg:hidden">
+				<button onclick="navbarToggle()" class="flex items-center px-3 py-2 border rounded text-gray-600 border-gray-600 hover:text-gray-900 hover:border-gray-900">
+					<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+				</button>
+			</div>
+			<div id="navbar-items" class="w-full flex-grow hidden lg:block lg:flex lg:items-center lg:w-auto">
+				<div class="lg:flex-grow font-semibold text-base">
+					<a href="#home" class="block mt-2 py-2 px-4 lg:inline-block lg:mt-0 text-gray-900 rounded hover:text-blue-600 hover:bg-gray-200 mr-4">
+						Home
+					</a>
+					<a href="#about-me" class="block mt-2 py-2 px-4 lg:inline-block lg:mt-0 text-gray-900 rounded hover:text-blue-600 hover:bg-gray-200 mr-4">
+						About Me
+					</a>
+					<a href="#projects" class="block mt-2 py-2 px-4 lg:inline-block lg:mt-0 text-gray-900 rounded hover:text-blue-600 hover:bg-gray-200 mr-4">
+						Projects
+					</a>
+					<a href="#contacts" class="block mt-2 py-2 px-4 lg:inline-block lg:mt-0 text-gray-900 rounded hover:text-blue-600 hover:bg-gray-200">
+						Contacts
+					</a>
+				</div>
+			</div>
+		</nav>
+
+		<main id="app">
+			<section id="home" class="h-screen bg-gray-700 text-center text-white flex flex-col justify-center items-center overflow-hidden">
+				<h1 class="text-3xl sm:text-6xl">&lt;Web Development&gt;</h1>
+				<p class="reveal mt-2">Scroll down</p>
+				<p class="reveal mb-0">&#8964;</p>
+				<p class="reveal mb-0">&#709;</p>
+			</section>
+
+			<section id="about-me" class="h-screen bg-teal-700 text-gray-900 flex justify-center items-center overflow-hidden px-6">
+				<article class="container pt-5">
+					<header class="title">
+						<h1 class="text-6xl text-white">About Me</h1>
+					</header>
+					<div class="grid grid-cols-7">
+						<div class="title col-span-7 lg:col-span-4 mb-3">
+							<p class="mt-5 text-xl">
+								Full-stack developer, from Portugal started my coding journey when I was sixteen. As a highschool
+								graduation project I built a CSS framework that granted me the highest grade of the class. I am currently
+								studying Computer Science in University of Minho.
+							</p>
+						</div>
+						<div class="flex flex-row justify-around col-span-7 lg:col-span-3 icons">
+							<div class="text-6xl">
+								<i class="devicon-css3-plain"></i>
+							</div>
+							<div class="text-6xl">
+								<i class="devicon-html5-plain"></i>
+							</div>
+							<div class="text-6xl">
+								<i class="devicon-javascript-plain"></i>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+
+			<section id="projects" class="min-h-screen bg-indigo-200 flex justify-center items-center px-6 overflow-hidden">
+				<article class="container pt-5">
+					<div class="grid grid-cols-9">
+						<header class="title col-span-9 sm:col-span-1">
+							<h1 class="text-6xl border-l-4 border-white text-gray-900 sm:hidden my-8 pl-2">Projects</h1>
+							<h1 class="text-6xl border-l-4 border-white text-gray-900 hidden sm:block upright">Projects</h1>
+						</header>
+						<div class="flex flex-row flex-wrap justify-around items-center col-span-9 sm:col-span-8 card">
+
+							<card v-for="card in cards"
+                                v-bind:card-title="card.title"
+                                v-bind:link="card.imageSrc"
+                                v-bind:description="card.imageAlt"
+                                v-bind:url="card.url">
+                            </card>
+
+						</div>
+					</div>
+				</article>
+			</section>
+
+			<section id="contacts" class="h-screen bg-white text-white flex justify-center items-center overflow-hidden">
+				<article class="container pt-5 flex flex-col">
+					<header class="title mb-12 md:mb-16 lg:mb-24">
+						<h1 class="text-6xl text-center text-blue-900"> Contacts</h1>
+					</header>
+					<div class="flex flex-row justify-around text-6xl">
+						<a class="sm:text-6xl" target="_blank" href="https://github.com/quantik-git/">
+							<i class="fa fa-github text-purple-700 hover:text-purple-900"></i>
+						</a>
+						<a class="sm:text-6xl" target="_blank" href="https://www.freecodecamp.org/fcc6df26d09">
+							<i class="fa fa-free-code-camp text-green-700 hover:text-green-900"></i>
+						</a>
+						<a class="sm:text-6xl" target="_blank" href="https://codepen.io/Quantik">
+							<i class="fa fa-codepen text-gray-700 hover:text-gray-900"></i>
+						</a>
+					</div>
+				</article>
+			</section>
+			<div class="flex flex-row flex-wrap justify-around items-center">
+                
+			</div>
+		</main>
+		<script type="text/javascript" src="scripts.js"></script>
+
+		<script>
+			Vue.component('card', {
+				props: ['cardTitle', 'link', 'description', 'url'],
+				template: `
+				<div class="m-8">
+					<div class="relative" style="padding-bottom: 50%;">
+						<img class="absolute rounded-lg shadow-lg" v-bind:src="link" v-bind:alt="description">
+					</div>
+					<div class="relative px-6 -mt-2" style="width: 350px;">
+						<div class="bg-white py-2 px-4 rounded-lg shadow-xl border border-gray-300">
+							<div class="flex items-baseline">
+								<div class="font-bold text-xl text-center text-gray-900 mb-2">{{ cardTitle }}</div>
+							</div>
+							<div class="text-center">
+								<a target="_blank" v-bind:href="url"
+                                    class="inline-block bg-gray-300 rounded-full px-3 py-1 shadow font-semibold text-gray-800 border-2 border-gray-600 hover:border-blue-400 hover:text-blue-600">
+									Show Me
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				`
+			});
+
+			var app = new Vue({
+                el: '#app',
+                data: {
+                    cards: [
+                        {
+                            title : "Stormbreaker",
+                            imageSrc : "assets/stormbreaker.gif",
+                            imageAlt : "Stormbreaker",
+                            url : "https://github.com/quantik-git/stormbreaker.github.io"
+                        },
+                        {
+                            title : "Learn ESM",
+                            imageSrc : "assets/Learn_ESM_resized.png",
+                            imageAlt : "Learn ESM",
+                            url : "http://galeria.esmonserrate.org/finalista/LearnESM/"
+                        },
+                        {
+                            title : "Codepen Clone",
+                            imageSrc : "assets/Screenshot_2020-07-31 Code Editor.png",
+                            imageAlt : "Codepen Clone website",
+                            url : "Projectos/CodepenClone/code_editor.html"
+                        }
+                    ]
+                }
+            });
+		</script>
+	</body>
+</html>
